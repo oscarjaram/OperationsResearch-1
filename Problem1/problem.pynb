@@ -1,0 +1,81 @@
+{
+ "nbformat": 4,
+ "nbformat_minor": 2,
+ "metadata": {
+  "language_info": {
+   "name": "python",
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "version": "3.7.3-final"
+  },
+  "orig_nbformat": 2,
+  "file_extension": ".py",
+  "mimetype": "text/x-python",
+  "name": "python",
+  "npconvert_exporter": "python",
+  "pygments_lexer": "ipython3",
+  "version": 3,
+  "kernelspec": {
+   "name": "python37364bitbasecondab9f7d016ab634a8d94ac3641adba1843",
+   "display_name": "Python 3.7.3 64-bit ('base': conda)"
+  }
+ },
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "** Enunciado del problema\n",
+    "\n",
+    "Usted ha recibido la oferta de una empresa productora de toda clase de elementos de vidrio (especialmente envases). Mientras el Gerente de Operaciones le muestra orgulloso el proceso de producción, el Gerente logístico los aborda e informa de los altos costos de inventario actualmente incurridos. El proceso de plani\fcación de la producción es realizado anualmente y es llevado a cabo por una persona tiempo completo del área de operaciones. Cada noviembre de cada año, esta persona realiza combinaciones de posibles longitudes de tiempo de producción para 5 colores de vidrio (estas longitudes de tiempo son normalmente denominadas \"campañas de color\") en 4 hornos para un horizonte de 12 meses y evalúa su factibilidad.\n",
+    "\n",
+    "La información que usted conoce es la siguiente:\n",
+    "\n",
+    "El proceso de fabricación de envases de vidrio comienza con la mezcla de materias primas que son fundidas en cada horno a 1500°C. Las materias primas demoran alrededor de 24 horas en pasar por el horno y transformarse en vidrio, a esta tanda se le denomina batch. Por lo tanto,\n",
+    "cuando es necesario hacer un cambio de color el vidrio al interior del horno debe salir e ingresar una mezcla con el nuevo color, por lo que el cambio demora SETUPij días entre el color i y el color j. No todos los colores pueden ser procesados en todos los hornos por política de la compañía, COMPhi es 1 cuando el color i 2 I puede ser procesado en el horno h 2 H, 0 de lo contrario. Cada horno h 2 H tiene una tasa de producción diaria de toneladas máxima TPh. Esta tasa puede ser regulada en cada campaña de color, por ejemplo, para un horno con 300 ton/día de tasa de producción máxima se puede tomar la decisión de fabricar 3000 toneladas de vidrio en 10 días o reducir la tasa de producción a 150 ton/día y fabricar las mismas 3000 toneladas de vidrio en 20 días productivos.\n",
+    "\n",
+    "La mezcla de materias primas es fundida con energía proveniente del gas natural y electricidad, y este gasto energético es de los costos mas altos de la empresa ya que encender un horno nuevamente demora 20 días productivos para regular la temperatura del material. Es por esto que\n",
+    "los hornos no pueden ser apagados, es preferible regular las tasas de producción por campa~na.\n",
+    "\n",
+    "Solo existe la posibilidad de apagar los hornos para hacer mantenimiento y al año solo se le hace mantenimiento a un horno, este evento es aprovechado para enviar a parte del personal a vacaciones (148 días). También se debe determinar en que horno y en que fecha del año serían estas vacaciones (para efectos del modelo piense las vacaciones como un color mas a programar).\n",
+    "\n",
+    "Para disminuir la complejidad del proceso de plani\fcación, la demanda de los diferentes productos de vidrio ha sido agregada por colores, así que se tiene una demanda agregada por tipo de color de vidrio i a ser satisfecha cada mes t, DDAit. Por similares razones la política de inventario de seguridad de la empresa es almacenar en el periodo actual un porcentaje de la demanda del periodo siguiente, Ri. Tambien es conocido el inventario de toneladas de color tipo i , IIi, así como el color actualmente en proceso en cada horno al inicio del periodo de plani\fcación, ULTih.\n",
+    "\n",
+    "La empresa cuenta con una bodega propia con capacidad para 45000 toneladas de vidrio de producto \fnal, el costo de almacenamiento propio se ha determinado en 2.5% mensual del valor por tonelada de la materia prima de producto inventariado, ya que la variedad y el valor nal de los productos del vidrio es muy heterog\u0013enea. Siempre puede encontrarse capacidad de almacenamiento en bodegas externas, no obstante el costo de esto es mucho mas alto que el de bodega interna: 15% mensual del valor por tonelada de la materia prima de producto inventariado.\n",
+    "\n",
+    "En general los productos de cada tipo de color tienen un rendimiento efectivo debido a defectos de fabricación: porcentaje de productos manufacturados aptos para ser almacenados, PTMi.\n",
+    "\n",
+    "Su tarea basicamente consiste en de\fnir la fecha de inicio y la longitud de las campañas de cada tipo de color de vidrio para la empresa, minimizando los costos de inventario en bodega propia y rentada, perdida de productividad por setups en hornos debido al cambio de color e\n",
+    "incluyendo penalizaciones por diferencias en tasas de producci\u0013on diaria entre campañas de color consecutivas en un mismo horno (esto deriva en ine\fciencias energéticas no deseadas), asuma que cada tonelada de diferencia entre estas tasas de producci\u0013on impacta directamente el costo."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "** Instrucciones para el trabajo\n",
+    "\n",
+    "a. Planteamiento y explicación del modelo de programación lineal o entero mixto que permitan resolver el problema propuesto.\n",
+    "\n",
+    "b. Implementación del modelo en el software que estime conveniente. Resuelvalos con los datos del archivo \"data.xlsx\".\n",
+    "\n",
+    "c. Realice un análisis de resultados y un análisis de sensibilidad de los resultados obtenidos. Gra\ffique las campañas obtenidas por su modelo.\n",
+    "\n",
+    "d. Planteamiento y explicación de la relajación lagrangeana que usted estime pertinente para el modelo propuesto.\n",
+    "\n",
+    "e. Implementación y resolución de la relajación lagrangeana planteada. Use el método de actualización de multiplicadores de Lagrange y criterio de parada que considere prudente.\n",
+    "\n",
+    "f. Proponga una heurística de factibilización de las soluciones obtenidas por el modelo de relajación lagrangeana. Explíquelas paso a paso con un ejemplo de su autoria."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ]
+}
