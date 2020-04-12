@@ -1,0 +1,29 @@
+Problema
+Considere el problema de satisfacer la demanda de una serie de componentes al mnimo costo, en que los componentes deben ser empaquetados en bins o containers para su envo, mas conocido en la literatura como binpacking.
+
+Especcamente, considere que se tienen tres tipos de bins, los que se caracterizan por su color (rojo, azul o verde) caracterizado cada uno por la capacidad de almacenamiento. El costo por utilizar cada bin depende del color, siendo para los Rojos de $150, para los Azules de $200 y para los verdes de $250.
+
+La capacidad de cada bin dependera del tama~no de la instancia: Para determinar la capacidad de cada tipo de bin se utiliza el siguiente procedimiento. Sea una lista de N tems ordenados segun sus pesos de menor a mayor. La capacidad de los bines rojos estara dada por n veces el espacio requerido
+por el tem ubicado en la posicion 2 5N , la capacidad de los bines azules estara dada n por veces el espacio requerido por el tem ubicado en la posicion 3 5N y la capacidad de los bines verdes por veces n el espacio requerido por el tem ubicado en la posicion 4
+5N. Donde n es particular para cada una de las instancias a evaluar.
+
+Por otra parte, para asegurar un mnimo de variedad en cada bin, se ha impuesto que a lo mas se puedan incluir 5 componentes del mismo tipo en los bins Rojos, 4 en los azules y 3 en los verdes. La idea es resolver el problema mediante generacion de columnas, para las siguientes instancias:
+
+Instancia 1: pesos 5.txt, demanda 5.txt, n= 5 (prueba)
+Instancia 2: pesos 50.txt, demanda 50.txt,n= 10
+Instancia 3: pesos 80.txt, demanda 80.txt, n= 8
+Instancia 4: pesos 150.txt, demanda 150.txt, n= 5
+
+Se sugiere resolver los subproblemas de generacion de columnas mediante programacion dinamica (knapsack).
+
+Desarrollo
+
+Formule un modelo de programacion lineal mixto que de solucion al problema.
+
+Considerando la formulacion obtenida anteriormente, utilice GAMS, ILOG OPL o Java para resolver el problema (las tres ultimas instancias). En caso de no llegar al optimo, analice el trade o entre calidad de la solucion obtenida y tiempo de corrida.
+
+Formular un modelo en base a generacion de columnas, especicando claramente el problema maestro y el subproblema, planteando claramente como sera resuelto mediante programacion dinamica.
+
+Resultados:
+(a) Compare resultados para las instancias 2, 3, 4 en base al modelo MIP y el modelo de G.C.
+(b) Mostrar funcion objetivo y evolucion (graco de costo v/s iteraciones, costo v/s tiempo de ejecucion), gap (si corresponde), numero de columnas generadas.
